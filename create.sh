@@ -12,10 +12,10 @@ vboxmanage createvm --name $VM --ostype "Linux_64" --register
 vboxmanage storagectl $VM --name "SATA Controller" --add sata --controller IntelAHCI
 vboxmanage storageattach $VM --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium $VM.vdi
 vboxmanage storagectl $VM --name "IDE Controller" --add ide
-vboxmanage storageattach $VM --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium /home/daniel/ISOs/$OS_ISO
+vboxmanage storageattach $VM --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium $OS_ISO
 vboxmanage modifyvm $VM --ioapic on 
 vboxmanage modifyvm $VM --boot1 dvd --boot2 disk --boot3 none --boot4 none
 vboxmanage modifyvm $VM --memory $MEMORY --vram $VRAM_SIZE
 vboxmanage modifyvm $VM --nic1 bridged --bridgeadapter1 eno2
 
-
+mv $VM.vdi $VM/
