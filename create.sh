@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 read -p "VM Name: " VM
 read -p "Path to ISO: " OS_ISO
