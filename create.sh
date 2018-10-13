@@ -1,8 +1,12 @@
 !#/bin/bash
 
-VM='CentOS-Server'
-OS_ISO='/home/daniel/ISOs/centOS.iso'
-MEMORY=4096
+read -p "VM Name: " VM
+read -p "Path to ISO: " OS_ISO
+read -p "Memory(In MB): " MEMORY
+
+#VM='CentOS-Server'
+#OS_ISO='/home/daniel/ISOs/centOS.iso'
+#MEMORY=4096
 
 vboxmanage createhd --filename $VM.vdi --size 32768
 vboxmanage createvm --name $VM --ostype "Linux_64" --register
